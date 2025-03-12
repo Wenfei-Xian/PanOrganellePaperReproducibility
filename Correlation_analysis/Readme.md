@@ -11,5 +11,6 @@ The output are 1001G.plus.bio1-19.txt and 1001G_Eastern-Asia.plus.bio1-19.txt
 ```
 ### Correlation between the mitochondrial genome structure and geograph/bioclimate
 ```
-Rscript 
+Rscript correlation_geograph_bioclimate.R
+
 ```

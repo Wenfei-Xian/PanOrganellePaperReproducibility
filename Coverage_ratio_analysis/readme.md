@@ -7,9 +7,9 @@ GTGGCTTTTTGGTTGGTAGCAGGACGGTAATTGGCAACGAAGCAGAGATTTATTTTACCCATTAAAAAGTATATTTCACC
 
 ```
 
-align hifi reads to the ref seq of repeat I & II.
-filter.coverage.py can be found in the scripts fold. it was used to keep the primary alignment and the ref seq need to be covered >90% of the hifi reads.
-mosdepth was used to calculate the coverage of repeat I and II. 
+HiFi reads were aligned to the reference sequences of repeat I and II.    
+The script filter.coverage.py was then used to retain only the primary alignments, ensuring that the reference sequences were covered by more than 90% of the HiFi reads.    
+Finally, mosdepth was employed to calculate the coverage for both repeat I and II.   
 
 ```
 for i in `cat ../../../00.ccs_reads/zall.143.ID `;do echo "minimap2 -ax map-hifi -c -t 36 ../../repeatI.II.fa ../../00.HiFi_reads/$i.q20.fastq.gz | python3 filter.coverage.py | samtools sort -@4 -o $i.sorted.bam -; samtools index -@4 $i.sorted.bam; mosdepth $i.mosdepth $i.sorted.bam" ;done
